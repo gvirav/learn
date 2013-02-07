@@ -1,0 +1,22 @@
+stories:
+concept: organized learning.
+set learning goals.
+	learn languages.
+		or learn just enough to be dangerous.
+lists - todos
+goals: [name:strings][description:text][due:datetime]
+checkpoints: [name:string][complete:boolean][due:datetime]
+
+initialize app
+simple styling
+routes 
+associations
+RESTful nesting
+users, registration, authorization
+fb/twt/gmail authorization
+user profiles, share goals to fb, twtr
+
+users submit learning resources (links)
+resources can be judged via voting
+tracks to achieve goals are defined
+users can discuss, ask comments, forum?
