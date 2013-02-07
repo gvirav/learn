@@ -1,4 +1,16 @@
 Learn::Application.routes.draw do
+  get "goal/index"
+
+  get "goal/create"
+
+  get "goal/show"
+
+  get "goal/edit"
+
+  get "goal/update"
+
+  get "goal/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
