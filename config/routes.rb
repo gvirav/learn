@@ -1,4 +1,18 @@
 Learn::Application.routes.draw do
+  get "checkpoints/index"
+
+  get "checkpoints/new"
+
+  get "checkpoints/create"
+
+  get "checkpoints/show"
+
+  get "checkpoints/edit"
+
+  get "checkpoints/update"
+
+  get "checkpoints/destroy"
+
   resources :goals
 
   root to: "goals#index"
