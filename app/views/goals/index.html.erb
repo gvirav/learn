@@ -1,2 +1,23 @@
-<h1>Goals#index</h1>
-<p>Find me in app/views/goals/index.html.erb</p>
+<h1>Listing Goals</h1>
+
+
+<table class="table">
+	<th>Goal</th>
+	<th>Description</th>
+	<th>Due Date</th>
+	<th colspan="2" style="text-align:center;">Manage</th>
+<% @goals.each do |goal| %>
+	<tr>
+		<td><%= link_to goal.name, goal_path(goal) %></td>
+		<td><%= truncate(goal.description, :length => 20, :separator => ' ') %></td>
+		<td><%= goal.due %></td>
+		<td><%= link_to 'Edit' %></td>
+		<td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Really delete goal?' } %></td>
+	</tr>
+<% end %>
+</table>
+
+<div class="well">
+	<h3>Add New</h3>
+	<%= render :partial => 'form' %>
+</div>
