@@ -18,6 +18,7 @@ group :assets do
 	gem 'libv8'
 	gem 'less-rails'
 	gem 'twitter-bootstrap-rails'
+	gem 'simple_form'
   gem 'uglifier', '>= 1.0.3'
 end
 
