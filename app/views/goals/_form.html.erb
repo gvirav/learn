@@ -1,6 +1,8 @@
-<%= form_for :goal do |f| %>
+<%= simple_form_for @goal, :html => {:class => 'form-horizontal' } do |f| %>
 	<%= f.text_field :name, :placeholder => "Goal Name" %><br/>
-	<%= f.text_area :description, :placeholder => "Goal Description" %><br/>
-	<%= f.date_select :due %><br/>
-	<%= f.button %><br/>
+	<%= f.text_area :description, :placeholder => "Goal Description" %><br/><br/>
+	<%= f.label :due, "Due date:" %><br/>
+	<%= f.date_select :due %><br/><br/>
+	<%= f.button :submit %><br/>
 <% end %>
+
