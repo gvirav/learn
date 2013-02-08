@@ -1,5 +1,5 @@
 class Checkpoint < ActiveRecord::Base
-  attr_accessible :complete, :deadline, :name, :purpose
+  attr_accessible :complete, :deadline, :title, :purpose
 
   belongs_to :goal
 end

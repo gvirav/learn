@@ -1,5 +1,26 @@
 <h3><%= @goal.name %></h3>
-<p><%= @goal.due %></p>
+<p>Complete by: <%= @goal.due.to_formatted_s(:long) %></p>
 <p><%= @goal.description %></p>
-<p><%= link_to 'Edit', edit_goal_path(@goal) %></p>
-<p><%= link_to 'Back to Goals', goals_path %></p>
+
+
+<table class="table">
+	<th>Checkpoint</th>
+	<th>Purpose</th>
+	<th>Deadline</th>
+	<th>Complete</th>
+	<th>Delete</th>
+
+	<% @goal.checkpoints.each do |checkpoint| %>
+	<tr>
+		<td><%= link_to checkpoint.title, goal_checkpoint_path(@goal, checkpoint) %></td>
+		<td><%= checkpoint.purpose %></td>
+		<td><%= checkpoint.deadline.to_formatted_s(:long) %></td>
+		<td><%= check_box_tag(checkpoint.complete) %></td>
+		<td><%= link_to "Delete", checkpoint, method: :delete, data: { confirm: "Really delete checkpoint?" } %></td>
+	</tr>
+	<% end %>
+</table>
+<hr/>
+<%= link_to 'Edit Goal', edit_goal_path(@goal) %><br/>
+<%= link_to 'New Checkpoint', new_goal_checkpoint_path(@goal) %><br/>
+<%= link_to 'Back to Goals', goals_path %></p>

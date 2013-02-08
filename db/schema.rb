@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208054429) do
+ActiveRecord::Schema.define(:version => 20130208060216) do
 
   create_table "checkpoints", :force => true do |t|
-    t.string   "name"
+    t.string   "title"
     t.text     "purpose"
     t.boolean  "complete"
     t.datetime "deadline"

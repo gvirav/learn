@@ -1,8 +1,28 @@
 @import "twitter/bootstrap/bootstrap";
 
 body {
-	margin-top: 50px;
+	margin-top: 5.1em;
+	font: 15px "Noticia Text";
 }
+
+.navbar-fixed-top {
+	box-shadow: 0 1px 2px rgba(59,59,59,0.4);
+}
+
+.navbar-inner {
+	height: 4em;
+	padding-top: 0.6%;
+	padding-bottom: 0;
+	background: #09C;
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.brand {
+	font-family: "Glegoo";
+}
+
+.brand a:link { color: black; text-decoration: none; }
+.brand a:visited { color: black; text-decoration: none; }
 
 @import "twitter/bootstrap/responsive";
 
@@ -10,16 +30,6 @@ body {
 @iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
 @iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");
 
-// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not
-//       have the proper paths. So for now we use the absolute path.
-@fontAwesomeEotPath: asset-path("fontawesome-webfont.eot");
-@fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff");
-@fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf");
-@fontAwesomeSvgPath: asset-path("fontawesome-webfont.svg");
-
-// Font Awesome
-@import "fontawesome";
 
 // Glyphicons
 //@import "twitter/bootstrap/sprites.less";
@@ -34,3 +44,4 @@ body {
 //
 // Example:
 // @linkColor: #ff0000;
+

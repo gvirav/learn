@@ -5,19 +5,22 @@
 	<th>Goal</th>
 	<th>Description</th>
 	<th>Due Date</th>
-	<th colspan="2" style="text-align:center;">Manage</th>
+	<th>Manage</th>
+
+
 <% @goals.each do |goal| %>
 	<tr>
 		<td><%= link_to goal.name, goal_path(goal) %></td>
 		<td><%= truncate(goal.description, :length => 20, :separator => ' ') %></td>
 		<td><%= goal.due.to_formatted_s(:long) %></td>
-		<td><%= link_to 'Edit' %></td>
 		<td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Really delete goal?' } %></td>
 	</tr>
 <% end %>
 </table>
 
+
+
 <div class="well">
-	<h3>Add New</h3>
+	<h3>Add New Goal</h3>
 	<%= render :partial => 'form' %>
 </div>
