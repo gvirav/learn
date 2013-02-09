@@ -30,9 +30,12 @@ class CheckpointsController < ApplicationController
 
   def update
     @checkpoint = Checkpoint.find(params[:id])
+    @goal = @checkpoint.goal
 
     if @checkpoint.update_attributes(params[:checkpoint])
-      redirect_to @goal.checkpoint
+      redirect_to goal_checkpoint_path(@checkpoint.goal, @checkpoint)
+    else
+      render action: 'edit'
     end
   end
 
