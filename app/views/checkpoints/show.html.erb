@@ -1,7 +1,8 @@
 <h3>Goal: <%= @checkpoint.goal.name %></h3>
-<p><strong><%= @checkpoint.title %></strong>: <%= @checkpoint.purpose %></p>
+<p><strong>Checkpoint: <%= @checkpoint.title %></strong>: <%= @checkpoint.purpose %></p>
+<p>Checkpoint Deadline: <%= @checkpoint.deadline.to_formatted_s(:long) %></p>
 
 <br/>
 <%= link_to "Edit", edit_goal_checkpoint_path(@checkpoint) %> | 
 <%= link_to "Delete", @checkpoint, method: :delete, data: { confirm: "Really delete checkpoint?" } %> |
-<%= link_to "Back to checkpoints", :back %>
+<%= link_to "Back to Checkpoints", :back %>

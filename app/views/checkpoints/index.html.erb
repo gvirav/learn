@@ -1,2 +1,20 @@
-<h1>Checkpoints#index</h1>
-<p>Find me in app/views/checkpoints/index.html.erb</p>
+<h3>Checkpoint List</h3>
+
+<table class="table">
+	<th>Checkpoint</th>
+	<th>Checkpoint Deadline</th>
+	<th>Goal</th>
+	<th>Complete?</th>
+
+<% @checkpoints.each do |checkpoint| %>
+	<tr>
+		<td><%= link_to(checkpoint.title, checkpoint) %></td>
+		<td><%= checkpoint.deadline.to_formatted_s(:long) %></td>
+		<td><%= link_to(checkpoint.goal.name, checkpoint.goal) %></td>
+		<td><%= check_box_tag(checkpoint.complete) %></td>
+	</tr>
+<% end %>
+</table>
+
+<hr />
+<%= link_to("Back to Goals", goals_path) %>
