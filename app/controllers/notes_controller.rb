@@ -15,7 +15,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to checkpoint_path(@checkpoint)
     else
-      render action: "edit"
+      render action: "index", notice: "Could not create."
     end
   end
 

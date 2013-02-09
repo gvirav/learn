@@ -1,5 +1,5 @@
 Learn::Application.routes.draw do
-  resources :notes
+  resources :notes, only: :index
   
   resources :checkpoints do 
     resources :notes
