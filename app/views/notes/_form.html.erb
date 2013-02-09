@@ -1,0 +1,6 @@
+<%= simple_form_for([@checkpoint, @note], :html => {:class=>'form-horizontal'}) do |f| %><br/>
+	<%= f.text_field :url, :placeholder => "Relevent URL for Note" %><br/>
+	<%= f.text_area :body, :placeholder => "Add Checkpoint Note" %><br/>
+	<%= f.button :submit %><br/>
+<% end %>
+

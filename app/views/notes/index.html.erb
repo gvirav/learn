@@ -1,0 +1,19 @@
+<h3>All Notes</h3>
+
+<table class="table">
+	<th>Note</th> <th>URL</th> <td>Checkpoint</td>
+
+	<% @notes.each do |note| %>
+	<tr>
+		<td><%= link_to(truncate(note.body, :length => 20, :separator => ' '), note) %></td>
+		<td><%= truncate(note.url, :length => 20) %></td>
+		<td><%= link_to(note.checkpoint.title, note.checkpoint) %></td>
+	</tr>
+	<% end %>
+</table>
+
+<hr />
+<%= link_to("Back to Checkpoints", checkpoints_path) %>
+
+
+

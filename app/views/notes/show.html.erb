@@ -1,0 +1,8 @@
+<h3><%= @note.checkpoint.title %> Note <%= @note.id %></h3>
+
+<p><%= link_to(@note.url, @note.url) %></p>
+<%= @note.body %>
+
+<hr/>
+<%= link_to("Edit", edit_checkpoint_note_path) %> | 
+<%= link_to("Back to Checkpoint", checkpoint_path(@note.checkpoint)) %>

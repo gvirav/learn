@@ -1,8 +1,27 @@
 <h3>Goal: <%= @checkpoint.goal.name %></h3>
-<p><strong>Checkpoint: <%= @checkpoint.title %></strong>: <%= @checkpoint.purpose %></p>
-<p>Checkpoint Deadline: <%= @checkpoint.deadline.to_formatted_s(:long) %></p>
+<p><strong>Checkpoint: <%= @checkpoint.title %></strong></p>
+<p>Deadline: <%= @checkpoint.deadline.to_formatted_s(:long) %></p>
+<p><%= @checkpoint.purpose %></p>
 
-<br/>
+<hr/>
+<%= link_to "Add Note", new_checkpoint_note_path(@checkpoint) %> |
 <%= link_to "Edit", edit_goal_checkpoint_path(@checkpoint) %> | 
 <%= link_to "Delete", @checkpoint, method: :delete, data: { confirm: "Really delete checkpoint?" } %> |
-<%= link_to "Back to Checkpoints", :back %>
+<%= link_to "Back to Checkpoints", checkpoints_path %>
+<br/><br/>
+
+<% if @checkpoint.notes.any? %>
+	<table class="table">
+		<th>Note URL</th>
+		<th>Note</th>
+		<th>Manage</th>
+
+		<% @checkpoint.notes.each do |note| %>
+			<tr>
+				<td><%= truncate(note.url, :length => 25) %></td>
+				<td><%= link_to(truncate(note.body, :length => 30), checkpoint_note_path(@checkpoint, note)) %></td>
+				<td><%= link_to "Delete", @note, method: :delete, data: { confirm: "Really delete note?" } %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>

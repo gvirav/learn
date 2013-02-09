@@ -1,5 +1,9 @@
 Learn::Application.routes.draw do
-  resources :checkpoints
+  resources :notes
+  
+  resources :checkpoints do 
+    resources :notes
+  end
 
   resources :goals do
     resources :checkpoints

@@ -4,16 +4,12 @@
 
 
 <table class="table">
-	<th>Checkpoint</th>
-	<th>Purpose</th>
-	<th>Deadline</th>
-	<th>Complete?</th>
-	<th>Delete</th>
+	<th>Checkpoint</th> <th>Purpose</th> <th>Deadline</th> <th>Complete?</th> <th>Delete</th>
 
 	<% @goal.checkpoints.each do |checkpoint| %>
 	<tr>
-		<td><%= link_to checkpoint.title, goal_checkpoint_path(@goal, checkpoint) %></td>
-		<td><%= checkpoint.purpose %></td>
+		<td><%= link_to(checkpoint.title, goal_checkpoint_path(@goal, checkpoint)) %></td>
+		<td><%= truncate(checkpoint.purpose, :length => 120) %></td>
 		<td><%= checkpoint.deadline.to_formatted_s(:long) %></td>
 		<td><%= check_box_tag(checkpoint.complete) %></td>
 		<td><%= link_to "Delete", checkpoint, method: :delete, data: { confirm: "Really delete checkpoint?" } %></td>
