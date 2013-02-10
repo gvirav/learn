@@ -1,4 +1,6 @@
 Learn::Application.routes.draw do
+  get "resources/index"
+
   devise_for :users
 
   as :user do

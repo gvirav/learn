@@ -30,3 +30,7 @@ checkpoint belongs_to goal
 checkpoint has_many notes
 note belongs_to checkpoint
 note has_one checkpoint
+
+-- 
+
+resources [category:string], [title:string], [url:string], [votes:integer]
