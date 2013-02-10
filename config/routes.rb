@@ -1,4 +1,6 @@
 Learn::Application.routes.draw do
+  devise_for :users
+
   resources :notes, only: :index
   
   resources :checkpoints do 
