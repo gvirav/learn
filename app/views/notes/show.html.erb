@@ -4,5 +4,5 @@
 <%= @note.body %>
 
 <hr/>
-<%= link_to("Edit", edit_checkpoint_note_path) %> | 
+<%= link_to("Edit", edit_checkpoint_note_path(@note.checkpoint)) %> | 
 <%= link_to("Back to Checkpoint", checkpoint_path(@note.checkpoint)) %>

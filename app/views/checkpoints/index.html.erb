@@ -8,7 +8,7 @@
 
 <% @checkpoints.each do |checkpoint| %>
 	<tr>
-		<td><%= link_to(checkpoint.title, checkpoint) %></td>
+		<td><%= link_to(checkpoint.title, goal_checkpoint_path(checkpoint.goal, checkpoint)) %></td>
 		<td><%= checkpoint.deadline.to_formatted_s(:long) %></td>
 		<td><%= link_to(checkpoint.goal.name, checkpoint.goal) %></td>
 		<td><%= check_box_tag(checkpoint.complete) %></td>

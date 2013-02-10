@@ -8,22 +8,23 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
+  def edit
+    @checkpoint = Checkpoint.find(params[:checkpoint_id])
+    @note = Note.find(params[:id])
+  end
+
   def create
     @checkpoint = Checkpoint.find(params[:checkpoint_id])
     @note = @checkpoint.notes.new(params[:note])
 
     if @note.save
-      redirect_to checkpoint_path(@checkpoint)
+      redirect_to checkpoint_note_path(@checkpoint, @note)
     else
       render action: "index", notice: "Could not create."
     end
   end
 
   def show
-    @note = Note.find(params[:id])
-  end
-
-  def edit
     @checkpoint = Checkpoint.find(params[:checkpoint_id])
     @note = Note.find(params[:id])
   end
@@ -33,19 +34,18 @@ class NotesController < ApplicationController
     @checkpoint = @note.checkpoint
 
     if @note.update_attributes(params[:note])
-      redirect_to checkpoint_note_path(@note)
+      redirect_to checkpoint_note_path(@note.checkpoint, @note)
     else
       render action: "edit"
     end
   end
 
   def destroy
-    @note = Note.find(parmas[:id])
+    @checkpoint = Checkpoint.find(params[:checkpoint_id])
+    @note = Note.find(params[:id])
     @note.destroy
-    if @note.destroy
-      redirect_to checkpoint_notes_path(@note.checkpoint, note)
-    else
-      redirect_to :back
-    end
+    # after note deletion, redirect to checkpoint
+    # to which note belonged
+    redirect_to checkpoint_path(@note.checkpoint)
   end
 end
