@@ -1,21 +1,28 @@
 <h3>Goals List</h3>
-<table class="table">
+<div class="row">
+
+<div class="span8">
+	<table class="table">
 	<th>Goal</th>
 	<th>Description</th>
 	<th>Due Date</th>
-	<th>Manage</th>
+	<th></th>
 
 <% @goals.each do |goal| %>
 	<tr>
 		<td><%= link_to goal.name, goal_path(goal) %></td>
 		<td><%= truncate(goal.description, :length => 20, :separator => ' ') %></td>
 		<td><%= goal.due.to_formatted_s(:long) %></td>
+		<% if user_signed_in? && current_user == goal.user %>
 		<td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Really delete goal?' } %></td>
+		<% end %>
 	</tr>
 <% end %>
 </table>
+</div>
 
-<div class="well">
-	<h3>Add New Goal</h3>
+<div class="span3 well">
+	<legend>Add New Goal</legend>
 	<%= render :partial => 'form' %>
+</div>
 </div>

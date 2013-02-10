@@ -5,8 +5,10 @@
 <p><%= @checkpoint.purpose %></p>
 
 <hr/>
+<% if user_signed_in? && current_user == @checkpoint.goal.user %>
 <%= link_to "Add Note", new_checkpoint_note_path(@checkpoint) %> |
 <%= link_to "Edit", edit_goal_checkpoint_path(@checkpoint.goal, @checkpoint) %> | 
+<% end %>
 <%= link_to "Back to Checkpoints", goal_path(@checkpoint.goal) %>
 <br/><br/>
 

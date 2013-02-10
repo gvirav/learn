@@ -11,7 +11,9 @@
 		<td><%= link_to(checkpoint.title, goal_checkpoint_path(checkpoint.goal, checkpoint)) %></td>
 		<td><%= checkpoint.deadline.to_formatted_s(:long) %></td>
 		<td><%= link_to(checkpoint.goal.name, checkpoint.goal) %></td>
+		<% if user_signed_in? && current_user == checkpoint.goal.user %>
 		<td><%= check_box_tag(checkpoint.complete) %></td>
+		<% end %>
 	</tr>
 <% end %>
 </table>

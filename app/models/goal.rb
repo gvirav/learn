@@ -4,4 +4,5 @@ class Goal < ActiveRecord::Base
   has_many :checkpoints
 
   belongs_to :user
+  has_many :notes, through: :checkpoints, :dependent => :destroy
 end

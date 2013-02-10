@@ -1,4 +1,6 @@
 class CheckpointsController < ApplicationController
+  before_filter :authenticate_user!, except: :index
+  before_filter :owner, only: [:edit, :update, :destroy]
   def index
     @checkpoints = Checkpoint.all
   end
@@ -49,4 +51,12 @@ class CheckpointsController < ApplicationController
       redirect_to @checkpoint, notice: "Error, could not delete."
     end
   end
+
+  private
+  def owner
+    if !user_signed_in? || current_user != Goal.find(params[:id]).user
+      redirect_to goals_path, error: "Permission denied!"
+    end
+  end
+  
 end

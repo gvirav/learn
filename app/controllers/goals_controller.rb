@@ -1,4 +1,7 @@
 class GoalsController < ApplicationController
+  before_filter :authenticate_user!, except: :index
+  before_filter :owner, only: [:edit, :update, :destroy]
+
   def index
     @goal = Goal.new
     @goals = Goal.all
@@ -6,6 +9,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(params[:goal])
+    @goal.user = current_user
 
     if @goal.save
       redirect_to @goal, notice: "Goal created."
@@ -41,4 +45,12 @@ class GoalsController < ApplicationController
       render @goal, notice: "Error, could not delete."
     end
   end
+
+  private
+  def owner
+    if !user_signed_in? || current_user != Goal.find(params[:id]).user
+      redirect_to goals_path, error: "Permission denied!"
+    end
+  end
+
 end

@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
    
-  has_many :goals
-  has_many :checkpoints, through: :goals
+  has_many :goals, :dependent => :destroy
+  has_many :checkpoints, through: :goals, :dependent => :destroy
 end

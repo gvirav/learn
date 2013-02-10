@@ -22,3 +22,11 @@ tracks to achieve goals are defined
 users can discuss, ask comments, forum?
 
 --	
+
+user has_many goals
+goal belongs_to user
+goal has_many checkpoints
+checkpoint belongs_to goal
+checkpoint has_many notes
+note belongs_to checkpoint
+note has_one checkpoint

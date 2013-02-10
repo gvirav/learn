@@ -2,9 +2,11 @@
 <p>Complete by: <%= @goal.due.to_formatted_s(:long) %></p>
 <p><%= @goal.description %></p>
 <br/>
+<% if user_signed_in? && current_user == @goal.user %>
 <%= link_to 'Add Checkpoint', new_goal_checkpoint_path(@goal) %> |
-<%= link_to 'Back to Goals', goals_path %> |
-<%= link_to 'Edit Goal', edit_goal_path(@goal) %>
+<%= link_to 'Edit Goal', edit_goal_path(@goal) %> |
+<% end %>
+<%= link_to 'Back to Goals', goals_path %>
 <br/><br/>
 <% if @goal.checkpoints.any? %>
 	<table class="table">
@@ -15,8 +17,10 @@
 			<td><%= link_to(checkpoint.title, goal_checkpoint_path(@goal, checkpoint)) %></td>
 			<td><%= truncate(checkpoint.purpose, :length => 120) %></td>
 			<td><%= checkpoint.deadline.to_formatted_s(:long) %></td>
+			<% if user_signed_in? && current_user == checkpoint.goal.user %>
 			<td><%= check_box_tag(checkpoint.complete) %></td>
 			<td><%= link_to "Delete", checkpoint, method: :delete, data: { confirm: "Really delete checkpoint?" } %></td>
+			<% end %>
 		</tr>
 		<% end %>
 	</table>

@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :authenticate_user!, except: :index
+  before_filter :owner, only: [:edit, :update, :destroy]
   def index
     @notes = Note.all
   end
@@ -44,8 +46,13 @@ class NotesController < ApplicationController
     @checkpoint = Checkpoint.find(params[:checkpoint_id])
     @note = Note.find(params[:id])
     @note.destroy
-    # after note deletion, redirect to checkpoint
-    # to which note belonged
     redirect_to checkpoint_path(@note.checkpoint)
+  end
+
+  private
+  def owner
+    if !user_signed_in? || current_user != Goal.find(params[:id]).user
+      redirect_to goals_path, error: "Permission denied!"
+    end
   end
 end
