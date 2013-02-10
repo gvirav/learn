@@ -6,9 +6,8 @@
 
 <hr/>
 <%= link_to "Add Note", new_checkpoint_note_path(@checkpoint) %> |
-<%= link_to "Edit", edit_goal_checkpoint_path(@checkpoint) %> | 
-<%= link_to "Delete", @checkpoint, method: :delete, data: { confirm: "Really delete checkpoint?" } %> |
-<%= link_to "Back to Checkpoints", checkpoints_path %>
+<%= link_to "Edit", edit_goal_checkpoint_path(@checkpoint.goal, @checkpoint) %> | 
+<%= link_to "Back to Checkpoints", goal_path(@checkpoint.goal) %>
 <br/><br/>
 
 <% if @checkpoint.notes.any? %>
