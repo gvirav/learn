@@ -36,7 +36,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
 
 	  if @resource.update_attributes(params[:resource])
-	  	redirect_to resources_path, notice: "Updated successfully."
+	  	redirect_to @resource, notice: "Updated successfully."
 	  else
 	  	render action: "index", error: "Sorry, encountered error."
 	  end
