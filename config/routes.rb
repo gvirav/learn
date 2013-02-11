@@ -1,6 +1,4 @@
 Learn::Application.routes.draw do
-  get "resources/index"
-
   devise_for :users
 
   as :user do
@@ -16,6 +14,10 @@ Learn::Application.routes.draw do
     delete '/logout' => 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  resources :resources
+  
+  match 'resources/:id/vote/:upvote' => 'resources#vote', as: 'resource_vote'
+
   resources :notes, only: :index
   
   resources :checkpoints do 
@@ -26,7 +28,7 @@ Learn::Application.routes.draw do
     resources :checkpoints
   end
 
-  root to: "goals#index"
+  root to: "resources#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

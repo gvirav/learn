@@ -1,0 +1,6 @@
+<%= simple_form_for(:resource, :html => {:class=>'form-horizontal'}) do |f| %>
+	<%= f.text_field :category, :placeholder => "Category" %>
+	<%= f.text_field :title, :placeholder => "Title" %>
+	<%= f.text_field :url, :placeholder => "URL" %>
+	<%= f.button :submit %>
+<% end %>

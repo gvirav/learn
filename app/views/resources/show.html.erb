@@ -1,0 +1,5 @@
+<h3><%= @resource.title %></h3>
+<p>Vote Count: <%= @resource.votes %>, category: <%= @resource.category %></p>
+<p>Added by: <%= @resource.user.email %></p>
+<p><%= link_to(@resource.url, @resource.url, :target=> "blank") %></p>
+<p><%= link_to("Back", resources_path) %></p>

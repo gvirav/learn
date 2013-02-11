@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
    
   has_many :goals, :dependent => :destroy
   has_many :checkpoints, through: :goals, :dependent => :destroy
+  has_many :resources, :dependent => :destroy
 end

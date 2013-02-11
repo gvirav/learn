@@ -12,7 +12,11 @@
  *= require_tree .
  */
 
-footer {
+.wrapper #footerText {
 	margin-top: 25%;
 	text-align: center;
+}
+
+.votes {
+	width: auto;
 }

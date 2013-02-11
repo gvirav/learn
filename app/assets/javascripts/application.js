@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+	$('.addField').hide();
+	$('.addResource').click(function(e){
+		e.preventDefault();
+		$('.addField').slideDown('slow');
+	});
+
+	$('.closeMe').click(function(e){
+		e.preventDefault();
+		$('.addField').slideUp('slow');
+	});
+
+	$('.share').click(function(e){
+		e.preventDefault();
+		var url = $(this).attr('href');
+		prompt("Copy your URL to share:", url);
+	});
+});
+
