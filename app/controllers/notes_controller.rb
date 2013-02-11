@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_filter :authenticate_user!, except: :index
   before_filter :owner, only: [:edit, :update, :destroy]
+ 
   def index
     @notes = Note.all
   end
@@ -28,6 +29,13 @@ class NotesController < ApplicationController
 
   def show
     @checkpoint = Checkpoint.find(params[:checkpoint_id])
+  end
+
+  def new
+    @note = Note.new
+  end
+
+  def edit
     @note = Note.find(params[:id])
   end
 
