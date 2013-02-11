@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_filter :authenticate_user!, :except => :index
+  before_filter :authenticate_user!, :except => [:index, :vote]
   
   def index
   	@resources = Resource.all
