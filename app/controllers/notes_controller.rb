@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_filter :authenticate_user!, except: :index
   before_filter :owner, only: [:edit, :update, :destroy]
+
   def index
     @notes = Note.all
   end
