@@ -4,8 +4,8 @@
 </div> <!-- end well -->
 
 <div class="row">
-	<div class="span12">
 		<% @resources.each do |resource| %>
+	<div class="span12">
 			<div class="span1"> 
 				<div class="votes">
 				<%#= link_to raw("<i class=\"icon-thumbs-up\">&nbsp;&nbsp;&nbsp;</i>"), resource_vote_path(resource, :up) %><%#= resource.votes %>
@@ -23,6 +23,6 @@
 			<div class="span1"><%= link_to("Show", resource_path(resource)) %></div>
 			<div class="span1"><%= link_to("Share", resource.url, :class => "share") %></div>
 			<% end %>
-		<% end %>
-	</div>
+		</div>
+	<% end %>
 </div>
