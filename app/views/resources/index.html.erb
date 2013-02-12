@@ -14,7 +14,7 @@
 				</div> 
 			</div>
 			<div class="span2"><%= resource.category %></div>
-			<div class="span3"> <%= link_to(resource.title, resource.url, :target => "blank") %></div>
+			<div class="span3"><%= link_to(truncate(resource.title, :length => 30), resource.url, :target => "blank") %></div>
 			<div class="span3"><%= truncate(resource.url, :length => 30) %></div>
 			<% if user_signed_in? && current_user == resource.user %>
 			<div class="span1"><%= link_to("Show", resource_path(resource)) %></div>
