@@ -16,6 +16,8 @@
 //= require_tree .
 
 $(document).ready(function(){
+	$('.dropdown-toggle').dropdown();
+
 	$('.addField').hide();
 	$('.addResource').click(function(e){
 		e.preventDefault();
@@ -32,5 +34,6 @@ $(document).ready(function(){
 		var url = $(this).attr('href');
 		prompt("Copy your URL to share:", url);
 	});
+
 });
 
