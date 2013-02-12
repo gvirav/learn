@@ -2,4 +2,5 @@
 <p>Vote Count: <%= @resource.votes %>, category: <%= @resource.category %></p>
 <p>Added by: <%= @resource.user.email %></p>
 <p><%= link_to(@resource.url, @resource.url, :target=> "blank") %></p>
+<p><%= @resource.summary %></p>
 <p><%= link_to("Back", resources_path) %></p>
