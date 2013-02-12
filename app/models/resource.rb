@@ -1,5 +1,5 @@
 class Resource < ActiveRecord::Base
-  attr_accessible :category, :title, :url, :votes, :summary
+  attr_accessible :category, :title, :url, :votes#, :summary
   validates_presence_of :url
   validates_presence_of :category
   validates_presence_of :title
